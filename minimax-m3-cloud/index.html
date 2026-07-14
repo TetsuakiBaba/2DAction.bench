@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Trail: Crystal Hollow</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1 class="title">Pixel Trail: Crystal Hollow</h1>
+      <div class="status" id="statusBar">
+        <span class="stat">Score: <strong id="scoreVal">0</strong></span>
+        <span class="stat">Lives: <strong id="livesVal">3</strong></span>
+        <span class="stat">Crystals: <strong id="crystalVal">0</strong>/<strong id="crystalMax">0</strong></span>
+        <span class="stat">Time: <strong id="timeVal">0</strong>s</span>
+      </div>
+    </header>
+
+    <div id="canvasWrap">
+      <canvas id="game" width="960" height="540" tabindex="0"></canvas>
+
+      <div id="overlay" class="overlay overlay-title">
+        <div class="overlay-card">
+          <h2 id="overlayTitle">Pixel Trail: Crystal Hollow</h2>
+          <p id="overlaySubtitle">A short side-scrolling platformer</p>
+          <div class="controls">
+            <p><strong>Controls</strong></p>
+            <ul>
+              <li>Move: &larr; &rarr; or A / D</li>
+              <li>Jump: Space, W, or &uarr;</li>
+              <li>Pause: P or Esc</li>
+              <li>Restart (after game over / clear): R or Enter</li>
+            </ul>
+          </div>
+          <p id="overlayHint" class="hint">Press <strong>Enter</strong> or <strong>Space</strong> to start</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bottombar">
+      <span>Tip: stomp spiky crawlers from above and grab every crystal.</span>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

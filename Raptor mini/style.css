@@ -1,0 +1,144 @@
+:root {
+    color-scheme: dark;
+    font-family: "Inter", system-ui, sans-serif;
+    background: #11151f;
+    color: #f4f4f8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, #0c1320 0%, #1d2b44 60%, #11151f 100%);
+}
+
+#game-shell {
+    position: relative;
+    width: min(100vw, 960px);
+    height: min(100vh, 540px);
+    overflow: hidden;
+    border: 2px solid #4b6b95;
+    border-radius: 18px;
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 35%),
+        linear-gradient(180deg, #17223e 0%, #0c1320 100%);
+}
+
+#game-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#ui-panel {
+    position: absolute;
+    inset: 12px;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#status-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    background: rgba(9, 18, 32, 0.7);
+    border: 1px solid rgba(124, 170, 255, 0.18);
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 0.95rem;
+}
+
+#controls {
+    margin-top: auto;
+    background: rgba(7, 15, 26, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+#overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 30px;
+    background: rgba(3, 12, 26, 0.8);
+    color: #eef4ff;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+#overlay.visible {
+    display: grid;
+}
+
+#overlay.hidden {
+    display: none;
+}
+
+.overlay-card {
+    max-width: 520px;
+    width: 100%;
+    background: rgba(5, 13, 28, 0.96);
+    border: 1px solid rgba(113, 179, 255, 0.22);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.overlay-card h1,
+.overlay-card h2 {
+    margin: 0 0 18px;
+    font-weight: 700;
+}
+
+.overlay-card p {
+    margin: 0 0 16px;
+    line-height: 1.6;
+}
+
+.overlay-card button {
+    border: none;
+    background: linear-gradient(135deg, #5fa5ff, #4d74f2);
+    color: white;
+    font-size: 1rem;
+    padding: 12px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.overlay-card button:hover {
+    filter: brightness(1.05);
+}
+
+@media (max-width: 640px) {
+    #game-shell {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        border: none;
+    }
+
+    #status-row,
+    #controls {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+
+    .overlay-card {
+        padding: 22px;
+    }
+}

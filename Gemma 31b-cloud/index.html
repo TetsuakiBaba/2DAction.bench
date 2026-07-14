@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Nexus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="ui-layer">
+            <div id="hud">
+                <div class="stat">SCORE: <span id="score">0</span></div>
+                <div class="stat">LIVES: <span id="lives">3</span></div>
+            </div>
+
+            <div id="overlay" class="hidden">
+                <div id="overlay-content">
+                    <h1 id="overlay-title">NEON NEXUS</h1>
+                    <p id="overlay-message">Welcome to the Nexus</p>
+                    <button id="start-button">START MISSION</button>
+                    <div id="controls-hint">
+                        <p>CONTROLS:</p>
+                        <p>Move: ← → / A D</p>
+                        <p>Jump: Space / W / ↑</p>
+                        <p>Pause: P / Esc</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>

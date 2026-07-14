@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skyline Sprint</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="game-shell">
+        <canvas id="game-canvas" width="960" height="540"></canvas>
+        <div id="overlay" class="hidden"></div>
+        <div id="ui-panel">
+            <div id="status-row">
+                <div id="score">Score: 0</div>
+                <div id="health">Health: 3</div>
+                <div id="stage">Stage 1</div>
+            </div>
+            <div id="controls">
+                Controls: A/D or ←/→ = move, W/↑/Space = jump, P/Esc = pause
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>

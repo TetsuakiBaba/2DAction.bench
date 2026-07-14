@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aether Circuit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="frame">
+      <canvas id="game" width="1280" height="720" aria-label="Aether Circuit game canvas"></canvas>
+      <div id="overlay">
+        <div id="titleCard" class="panel visible">
+          <h1>Aether Circuit</h1>
+          <p>Run the luminous relay, collect the shards, and reach the beacon.</p>
+          <button id="startButton" type="button">Start Journey</button>
+        </div>
+
+        <div id="messageCard" class="panel hidden">
+          <h2 id="messageTitle"></h2>
+          <p id="messageBody"></p>
+          <button id="restartButton" type="button">Restart</button>
+        </div>
+
+        <div id="hud">
+          <div class="stat"><span>Score</span><strong id="scoreValue">0</strong></div>
+          <div class="stat"><span>Lives</span><strong id="livesValue">3</strong></div>
+          <div class="stat"><span>Shards</span><strong id="shardsValue">0/0</strong></div>
+          <div class="stat"><span>Status</span><strong id="statusValue">Title</strong></div>
+        </div>
+
+        <div id="help">
+          <div>Move: ← → or A D</div>
+          <div>Jump: Space / W / ↑</div>
+          <div>Pause: P / Esc</div>
+          <div>Restart: R</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

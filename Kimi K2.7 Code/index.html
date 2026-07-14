@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Ascent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+
+        <!-- UI overlay -->
+        <div id="ui-layer">
+            <div id="hud" class="hidden">
+                <div id="score">SCORE: 0</div>
+                <div id="lives">LIVES: 3</div>
+                <div id="level-progress">GOAL: →</div>
+            </div>
+
+            <div id="controls-hint" class="hidden">
+                <span>Move: ← → / A D</span>
+                <span>Jump: Space / W / ↑</span>
+                <span>Pause: P / Esc</span>
+            </div>
+
+            <!-- Menu screen -->
+            <div id="menu-screen" class="screen">
+                <h1>NEON ASCENT</h1>
+                <p class="subtitle">A 2D Platform Adventure</p>
+                <div class="controls-box">
+                    <h2>Controls</h2>
+                    <ul>
+                        <li><strong>Move:</strong> Left / Right Arrows or A / D</li>
+                        <li><strong>Jump:</strong> Space, W, or Up Arrow</li>
+                        <li><strong>Pause:</strong> P or Escape</li>
+                    </ul>
+                </div>
+                <p class="objective">Collect crystals, avoid pits, defeat enemies by jumping on them, and reach the
+                    portal.</p>
+                <button id="start-btn">Start Game</button>
+            </div>
+
+            <!-- Pause screen -->
+            <div id="pause-screen" class="screen hidden">
+                <h2>PAUSED</h2>
+                <button id="resume-btn">Resume</button>
+            </div>
+
+            <!-- Game Over screen -->
+            <div id="gameover-screen" class="screen hidden">
+                <h2>GAME OVER</h2>
+                <p id="final-score">Score: 0</p>
+                <button id="restart-btn-gameover">Try Again</button>
+            </div>
+
+            <!-- Win screen -->
+            <div id="win-screen" class="screen hidden">
+                <h2>STAGE CLEAR!</h2>
+                <p id="win-score">Score: 0</p>
+                <button id="restart-btn-win">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>

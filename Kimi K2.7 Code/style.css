@@ -1,0 +1,224 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #0a0a12;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a12 100%);
+}
+
+/* Canvas styling with responsive scaling */
+#game-canvas {
+    display: block;
+    background: #0d0d18;
+    box-shadow: 0 0 40px rgba(100, 200, 255, 0.15);
+    max-width: 100%;
+    max-height: 100%;
+    image-rendering: pixelated;
+}
+
+/* UI overlay covers the canvas area */
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#ui-layer>* {
+    pointer-events: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* HUD */
+#hud {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+    color: #e0f7ff;
+    user-select: none;
+}
+
+#score {
+    color: #ffdf6b;
+}
+
+#lives {
+    color: #ff6b6b;
+}
+
+#level-progress {
+    color: #6bffb8;
+}
+
+/* Controls hint */
+#controls-hint {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18px;
+    font-size: 12px;
+    color: rgba(224, 247, 255, 0.8);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    user-select: none;
+}
+
+/* Screens (menu, pause, game over, win) */
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(420px, 90%);
+    padding: 32px 28px;
+    background: rgba(15, 20, 35, 0.95);
+    border: 2px solid #4ecdc4;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(78, 205, 196, 0.25);
+    backdrop-filter: blur(4px);
+}
+
+.screen h1 {
+    font-size: 36px;
+    margin-bottom: 6px;
+    background: linear-gradient(90deg, #4ecdc4, #ff6b6b, #ffdf6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+}
+
+.screen h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: #4ecdc4;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: rgba(224, 247, 255, 0.7);
+    margin-bottom: 22px;
+}
+
+.controls-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.controls-box h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ffdf6b;
+    text-align: center;
+}
+
+.controls-box ul {
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.controls-box li {
+    padding-left: 8px;
+    border-left: 2px solid #4ecdc4;
+    margin-bottom: 4px;
+}
+
+.controls-box strong {
+    color: #4ecdc4;
+}
+
+.objective {
+    font-size: 13px;
+    color: rgba(224, 247, 255, 0.8);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+#final-score,
+#win-score {
+    font-size: 18px;
+    color: #ffdf6b;
+    margin-bottom: 20px;
+}
+
+button {
+    background: linear-gradient(135deg, #4ecdc4, #2a9d8f);
+    color: #ffffff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+    pointer-events: auto;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(78, 205, 196, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #hud {
+        font-size: 12px;
+    }
+
+    #controls-hint {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .screen h1 {
+        font-size: 28px;
+    }
+
+    .screen h2 {
+        font-size: 22px;
+    }
+}

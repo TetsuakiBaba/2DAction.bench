@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a32">
+  <title>Lumen Run — 星灯りの回廊</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell" aria-label="Lumen Run 2D platform game">
+    <header class="brand-row">
+      <div>
+        <p class="eyebrow">ORIGINAL 2D PLATFORM ADVENTURE</p>
+        <h1>LUMEN <span>RUN</span></h1>
+      </div>
+      <button id="soundButton" class="icon-button" type="button" aria-label="サウンドを切り替える">SOUND ON</button>
+    </header>
+
+    <section id="gameFrame" class="game-frame">
+      <canvas id="gameCanvas" width="960" height="540" aria-label="ゲーム画面"></canvas>
+
+      <div class="hud" aria-live="polite">
+        <div class="hud-cell"><span>SCORE</span><strong id="scoreValue">000000</strong></div>
+        <div class="hud-cell"><span>SHARDS</span><strong id="shardValue">0 / 0</strong></div>
+        <div class="hud-cell"><span>LIVES</span><strong id="livesValue">◆ ◆ ◆</strong></div>
+        <div class="hud-cell stage"><span>STAGE</span><strong>THE AURORA PASS</strong></div>
+      </div>
+
+      <div id="titleScreen" class="overlay title-screen">
+        <div class="title-card">
+          <p class="kicker">A MIDNIGHT EXPEDITION</p>
+          <h2>LUMEN<br><em>RUN</em></h2>
+          <p class="story">夜明けを呼ぶ光を集め、オーロラの門へ。<br>小さな旅人ノヴァの、一夜限りの冒険。</p>
+          <button id="startButton" class="primary-button" type="button">旅をはじめる <span>ENTER</span></button>
+        </div>
+      </div>
+
+      <div id="messageScreen" class="overlay message-screen hidden">
+        <div class="message-card">
+          <p id="messageKicker" class="kicker">EXPEDITION ENDED</p>
+          <h2 id="messageTitle">GAME OVER</h2>
+          <p id="messageText"></p>
+          <button id="restartButton" class="primary-button" type="button">もう一度 <span>R</span></button>
+        </div>
+      </div>
+
+      <div id="pauseScreen" class="pause-card hidden">PAUSED <small>P / ESC で再開</small></div>
+
+      <div class="touch-controls" aria-label="タッチ操作">
+        <button id="touchLeft" type="button" aria-label="左へ移動">◀</button>
+        <button id="touchRight" type="button" aria-label="右へ移動">▶</button>
+        <button id="touchJump" class="jump" type="button" aria-label="ジャンプ">JUMP</button>
+      </div>
+    </section>
+
+    <footer class="controls-panel">
+      <p><b>MOVE</b><kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd></p>
+      <p><b>JUMP</b><kbd>SPACE</kbd> / <kbd>W</kbd><kbd>↑</kbd></p>
+      <p><b>PAUSE</b><kbd>P</kbd> / <kbd>ESC</kbd></p>
+      <p class="tip">ヒント：敵は上から踏むと倒せます</p>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="2Dアクションゲーム実装ベンチマークの結果一覧">
+  <title>2DAction.bench — Benchmark Gallery</title>
+  <link rel="stylesheet" href="benchmark.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="2DAction.bench トップ">
+      <span class="brand-mark" aria-hidden="true">2D</span>
+      <span>Action<span class="brand-dot">.</span>bench</span>
+    </a>
+    <nav class="header-actions" aria-label="データ操作">
+      <label class="button button-quiet" for="json-file">JSONを読み込む</label>
+      <input id="json-file" type="file" accept="application/json,.json" hidden>
+      <button class="button button-dark" id="export-button" type="button">JSONを書き出す</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> Agentic coding benchmark</p>
+        <h1 id="page-title">同じ仕様。<br><em><span id="game-count">0</span>つ</em>のゲーム。</h1>
+        <p class="hero-lead">モデルごとの実装をプレイし、仕様を満たしているかを記録するためのベンチマークギャラリーです。</p>
+      </div>
+      <div class="scoreboard" aria-label="評価サマリー">
+        <div class="score-main"><strong id="completion-rate">0%</strong><span>評価完了率</span></div>
+        <div class="score-list">
+          <div><span class="status-dot pass"></span><b id="pass-count">0</b> Pass</div>
+          <div><span class="status-dot partial"></span><b id="partial-count">0</b> Partial</div>
+          <div><span class="status-dot fail"></span><b id="fail-count">0</b> Fail</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" aria-labelledby="results-heading">
+      <div class="section-bar">
+        <div>
+          <p class="section-index">01 / RESULTS</p>
+          <h2 id="results-heading">Benchmark results</h2>
+        </div>
+        <div class="filters">
+          <label class="search-wrap">
+            <span class="sr-only">モデルを検索</span>
+            <input id="search" type="search" placeholder="モデルを検索…" autocomplete="off">
+          </label>
+          <label>
+            <span class="sr-only">ステータスで絞り込む</span>
+            <select id="status-filter">
+              <option value="all">すべてのステータス</option>
+              <option value="pass">Pass</option>
+              <option value="partial">Partial</option>
+              <option value="fail">Fail</option>
+              <option value="untested">未評価</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="notice" id="save-notice" role="status">
+        <span>編集内容はこのブラウザに自動保存されます。</span>
+        <button id="reset-button" type="button">ローカル編集をリセット</button>
+      </div>
+
+      <div class="card-grid" id="card-grid" aria-live="polite"></div>
+      <p class="empty-state" id="empty-state" hidden>条件に一致するモデルがありません。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built to compare browser games, one run at a time.</p>
+    <a href="prompt.md">View prompt.md <span aria-hidden="true">↗</span></a>
+  </footer>
+
+  <template id="card-template">
+    <article class="result-card">
+      <a class="shot-link" target="_blank" rel="noopener">
+        <img class="screenshot" alt="" loading="lazy">
+        <span class="play-chip"><span aria-hidden="true">▶</span> PLAY GAME</span>
+      </a>
+      <div class="card-body">
+        <div class="card-heading">
+          <div>
+            <p class="game-title"></p>
+            <h3 class="model-name"></h3>
+          </div>
+          <label class="status-control">
+            <span class="sr-only">評価ステータス</span>
+            <select class="status-select" aria-label="評価ステータス">
+              <option value="untested">● 未評価</option>
+              <option value="pass">● PASS</option>
+              <option value="partial">● PARTIAL</option>
+              <option value="fail">● FAIL</option>
+            </select>
+          </label>
+        </div>
+        <label class="notes-label">
+          <span>TEST NOTES</span>
+          <textarea class="notes" rows="2" placeholder="挙動や未達項目をメモ…"></textarea>
+        </label>
+        <a class="open-game" target="_blank" rel="noopener">ゲームを開く <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+  </template>
+
+  <script src="benchmarks-data.js"></script>
+  <script src="benchmark.js"></script>
+</body>
+</html>
