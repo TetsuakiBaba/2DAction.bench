@@ -23,11 +23,13 @@
     const results = candidate.results.map((item) => {
       if (!item || typeof item.id !== "string" || typeof item.model !== "string") throw new Error("モデル情報が不正です");
       const fallback = knownById.get(item.id) || {};
+      const rawScore = Number.isFinite(item.score) ? item.score : fallback.score;
       return {
         id: item.id,
         model: item.model,
         gameTitle: String(item.gameTitle || fallback.gameTitle || "Untitled game"),
         status: validStatuses.has(item.status) ? item.status : "untested",
+        score: Number.isFinite(rawScore) ? Math.min(100, Math.max(0, Math.round(rawScore))) : null,
         notes: String(item.notes || ""),
         screenshot: String(item.screenshot || fallback.screenshot || ""),
         gameUrl: String(item.gameUrl || fallback.gameUrl || "")
@@ -46,15 +48,33 @@
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
       if (!saved || !Array.isArray(saved.results)) return;
       const edits = new Map(saved.results.map((item) => [item.id, item]));
-      data.results = data.results.map((item) => ({ ...item, ...(edits.get(item.id) || {}) }));
+      data.results = data.results.map((item) => {
+        const edit = edits.get(item.id);
+        if (!edit) return item;
+        const score = Number.isFinite(edit.score)
+          ? Math.min(100, Math.max(0, Math.round(edit.score)))
+          : item.score;
+        return {
+          ...item,
+          status: validStatuses.has(edit.status) ? edit.status : item.status,
+          score,
+          notes: typeof edit.notes === "string" ? edit.notes : item.notes
+        };
+      });
     } catch (error) {
       console.warn("保存済み評価を読み込めませんでした", error);
     }
   }
 
+  function saveLocalEdits() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      results: data.results.map(({ id, status, score, notes }) => ({ id, status, score, notes }))
+    }));
+  }
+
   function save() {
     data.updatedAt = new Date().toISOString().slice(0, 10);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    saveLocalEdits();
     updateSummary();
   }
 
@@ -73,10 +93,15 @@
   function render() {
     const query = searchInput.value.trim().toLocaleLowerCase("ja");
     const filter = statusFilter.value;
-    const visible = data.results.filter((item) => {
-      const textMatch = `${item.model} ${item.gameTitle}`.toLocaleLowerCase("ja").includes(query);
-      return textMatch && (filter === "all" || item.status === filter);
-    });
+    const visible = data.results
+      .filter((item) => {
+        const textMatch = `${item.model} ${item.gameTitle}`.toLocaleLowerCase("ja").includes(query);
+        return textMatch && (filter === "all" || item.status === filter);
+      })
+      .sort((a, b) => {
+        const scoreDifference = (b.score ?? -1) - (a.score ?? -1);
+        return scoreDifference || a.model.localeCompare(b.model, "ja");
+      });
 
     grid.replaceChildren();
     visible.forEach((item) => {
@@ -85,6 +110,7 @@
       const image = card.querySelector(".screenshot");
       const gameLink = card.querySelector(".open-game");
       const status = card.querySelector(".status-select");
+      const score = card.querySelector(".score-input");
       const notes = card.querySelector(".notes");
 
       shotLink.href = item.gameUrl;
@@ -96,6 +122,8 @@
       status.value = item.status;
       status.dataset.status = item.status;
       status.setAttribute("aria-label", `${item.model}の評価ステータス`);
+      score.value = item.score ?? "";
+      score.setAttribute("aria-label", `${item.model}のスコア（100点満点）`);
       notes.value = item.notes;
       notes.setAttribute("aria-label", `${item.model}のテストメモ`);
 
@@ -104,6 +132,13 @@
         status.dataset.status = status.value;
         save();
         if (statusFilter.value !== "all" && statusFilter.value !== item.status) render();
+      });
+      score.addEventListener("change", () => {
+        const value = score.valueAsNumber;
+        item.score = Number.isFinite(value) ? Math.min(100, Math.max(0, Math.round(value))) : null;
+        score.value = item.score ?? "";
+        save();
+        render();
       });
       notes.addEventListener("input", () => {
         item.notes = notes.value;
@@ -136,7 +171,7 @@
     if (!file) return;
     try {
       data = sanitizeData(JSON.parse(await file.text()));
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      saveLocalEdits();
       searchInput.value = "";
       statusFilter.value = "all";
       render();
@@ -160,7 +195,7 @@
   });
 
   document.querySelector("#reset-button").addEventListener("click", () => {
-    if (!confirm("このブラウザに保存したステータスとメモをリセットしますか？")) return;
+    if (!confirm("このブラウザに保存したスコア、ステータス、メモをリセットしますか？")) return;
     localStorage.removeItem(STORAGE_KEY);
     data = structuredClone(defaultData);
     render();

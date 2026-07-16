@@ -18,9 +18,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 JSON_PATH = ROOT / "benchmarks.json"
 JS_PATH = ROOT / "benchmarks-data.js"
-SCREENSHOT_DIR = ROOT / "screenshots"
-
-
 class TitleParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -150,8 +147,8 @@ def main() -> None:
         model = model_dir.name
         item_id = ids[model_dir]
         previous = existing_by_model.get(model) or existing_by_id.get(item_id) or {}
-        screenshot = f"screenshots/{item_id}.png"
-        screenshot_path = ROOT / screenshot
+        screenshot = f"{model}/screenshot.png"
+        screenshot_path = model_dir / "screenshot.png"
 
         if not args.no_screenshots and (args.refresh_screenshots or not screenshot_path.exists()):
             action = "refreshed" if screenshot_path.exists() else "created"
@@ -164,6 +161,7 @@ def main() -> None:
                 "model": model,
                 "gameTitle": read_title(model_dir / "index.html"),
                 "status": previous.get("status", "untested"),
+                "score": previous.get("score"),
                 "notes": previous.get("notes", ""),
                 "screenshot": screenshot,
                 "gameUrl": f"{model}/index.html",

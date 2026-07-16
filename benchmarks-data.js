@@ -2,42 +2,86 @@
 window.BENCHMARK_DATA = {
   "benchmark": "2DAction.bench",
   "prompt": "prompt.md",
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-16",
   "results": [
+    {
+      "id": "claude-sonnet-4-6",
+      "model": "Claude Sonnet 4.6",
+      "gameTitle": "Crystal Dash",
+      "status": "pass",
+      "score": 92,
+      "notes": "キャラクタの待機中の動きが忙しない。ジャンプがでかい。でもちゃんと遊べる。",
+      "screenshot": "Claude Sonnet 4.6/screenshot.png",
+      "gameUrl": "Claude Sonnet 4.6/index.html"
+    },
+    {
+      "id": "claude-sonnet-5",
+      "model": "Claude Sonnet 5",
+      "gameTitle": "Crystal Cavern Dash",
+      "status": "pass",
+      "score": 94,
+      "notes": "クリスタルキャバーンダッシュというタイトルが面白かった。キャラクターもコウモリっぽいのがいたりと完成度が高い。",
+      "screenshot": "Claude Sonnet 5/screenshot.png",
+      "gameUrl": "Claude Sonnet 5/index.html"
+    },
     {
       "id": "gemini-3-1-pro-preview",
       "model": "Gemini 3.1 Pro (preview)",
       "gameTitle": "Neon Jumper",
       "status": "pass",
-      "notes": "",
-      "screenshot": "screenshots/gemini-3-1-pro-preview.png",
+      "score": 80,
+      "notes": "クリアができて完結してるが、見た目しょぼい。",
+      "screenshot": "Gemini 3.1 Pro (preview)/screenshot.png",
       "gameUrl": "Gemini 3.1 Pro (preview)/index.html"
     },
     {
-      "id": "gemma-31b-cloud",
-      "model": "Gemma 31b-cloud",
+      "id": "gemini-3-5-flash",
+      "model": "Gemini 3.5 Flash",
+      "gameTitle": "Cyber Jump: Neon Run",
+      "status": "untested",
+      "score": null,
+      "notes": "",
+      "screenshot": "Gemini 3.5 Flash/screenshot.png",
+      "gameUrl": "Gemini 3.5 Flash/index.html"
+    },
+    {
+      "id": "gemma4-31b",
+      "model": "Gemma4 31b",
       "gameTitle": "Neon Nexus",
       "status": "fail",
-      "notes": "",
-      "screenshot": "screenshots/gemma-31b-cloud.png",
-      "gameUrl": "Gemma 31b-cloud/index.html"
+      "score": 5,
+      "notes": "タイトル画面もない。全く動かない。",
+      "screenshot": "Gemma4 31b/screenshot.png",
+      "gameUrl": "Gemma4 31b/index.html"
     },
     {
       "id": "gpt5-4-mini",
       "model": "GPT5.4-mini",
       "gameTitle": "Aether Circuit",
       "status": "partial",
-      "notes": "",
-      "screenshot": "screenshots/gpt5-4-mini.png",
+      "score": 80,
+      "notes": "一応遊べるが、クリアができない。下に落ちない。",
+      "screenshot": "GPT5.4-mini/screenshot.png",
       "gameUrl": "GPT5.4-mini/index.html"
+    },
+    {
+      "id": "gpt5-5",
+      "model": "GPT5.5",
+      "gameTitle": "Skyline Sprout",
+      "status": "pass",
+      "score": 90,
+      "notes": "一個だけコインが取れなかった。それ以外は動作は問題なし。",
+      "screenshot": "GPT5.5/screenshot.png",
+      "gameUrl": "GPT5.5/index.html"
     },
     {
       "id": "gpt5-6-luna",
       "model": "GPT5.6-Luna",
       "gameTitle": "Lumen Run",
       "status": "partial",
-      "notes": "",
-      "screenshot": "screenshots/gpt5-6-luna.png",
+      "score": 74,
+      "notes": "遊べる。クリアができない",
+      "screenshot": "GPT5.6-Luna/screenshot.png",
       "gameUrl": "GPT5.6-Luna/index.html"
     },
     {
@@ -45,8 +89,9 @@ window.BENCHMARK_DATA = {
       "model": "GPT5.6-Sol",
       "gameTitle": "Lumen Run — 星灯りの回廊",
       "status": "pass",
-      "notes": "",
-      "screenshot": "screenshots/gpt5-6-sol.png",
+      "score": 95,
+      "notes": "コインを全て取れない。ジャンプの高さと足場の高さが設計に合っていない。",
+      "screenshot": "GPT5.6-Sol/screenshot.png",
       "gameUrl": "GPT5.6-Sol/index.html"
     },
     {
@@ -54,26 +99,39 @@ window.BENCHMARK_DATA = {
       "model": "Kimi K2.7 Code",
       "gameTitle": "Neon Ascent",
       "status": "pass",
-      "notes": "",
-      "screenshot": "screenshots/kimi-k2-7-code.png",
+      "score": 88,
+      "notes": "見た目がそっけないがちゃんと遊べる。",
+      "screenshot": "Kimi K2.7 Code/screenshot.png",
       "gameUrl": "Kimi K2.7 Code/index.html"
     },
     {
-      "id": "minimax-m3-cloud",
-      "model": "minimax-m3-cloud",
+      "id": "minimax-m3",
+      "model": "minimax-m3",
       "gameTitle": "Pixel Trail: Crystal Hollow",
       "status": "partial",
-      "notes": "",
-      "screenshot": "screenshots/minimax-m3-cloud.png",
-      "gameUrl": "minimax-m3-cloud/index.html"
+      "score": 50,
+      "notes": "ジャンプできない。",
+      "screenshot": "minimax-m3/screenshot.png",
+      "gameUrl": "minimax-m3/index.html"
+    },
+    {
+      "id": "qwen3-5-4b-mlx",
+      "model": "qwen3.5-4b-mlx",
+      "gameTitle": "Adventure Quest - 冒険の冒険",
+      "status": "fail",
+      "score": 10,
+      "notes": "タイトル画面からスタートはできるがゲームは全くできない",
+      "screenshot": "qwen3.5-4b-mlx/screenshot.png",
+      "gameUrl": "qwen3.5-4b-mlx/index.html"
     },
     {
       "id": "raptor-mini",
       "model": "Raptor mini",
       "gameTitle": "Skyline Sprint",
       "status": "fail",
-      "notes": "",
-      "screenshot": "screenshots/raptor-mini.png",
+      "score": 32,
+      "notes": "最初はキャラクターがいないが、ジャンプすると頭が見える。動いているっぽい。",
+      "screenshot": "Raptor mini/screenshot.png",
       "gameUrl": "Raptor mini/index.html"
     }
   ]

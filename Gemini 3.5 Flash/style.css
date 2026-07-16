@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Cyber Jump: Neon Run - Stylesheet
+   ========================================================================== */
+
+/* 全体のリセットと背景 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0d0d1a;
+    color: #fff;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ゲーム全体のコンテナ設定 */
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 450px;
+    background-color: #050510;
+    border: 4px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* キャンバス */
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #070714 0%, #101030 100%);
+}
+
+/* HUD (ヘッドアップディスプレイ) */
+#hud {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none; /* 下の要素の操作を阻害しない */
+    z-index: 10;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+    font-family: monospace;
+}
+
+.hud-item {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 15px;
+    border: 1px solid #00ffff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+/* 各画面オーバーレイ */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 5, 15, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.overlay-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* タイトルテキスト */
+.game-title {
+    font-size: 42px;
+    letter-spacing: 4px;
+    color: #ff007f;
+    text-shadow: 0 0 15px rgba(255, 0, 127, 0.8), 0 0 30px rgba(255, 0, 127, 0.5);
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 24px;
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.description {
+    font-size: 14px;
+    color: #a0a0c0;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+/* 操作ガイド */
+.controls-guide {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px dashed #00ffff;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    display: inline-block;
+    text-align: left;
+}
+
+.controls-guide h3 {
+    font-size: 16px;
+    color: #00ffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.controls-guide ul {
+    list-style: none;
+}
+
+.controls-guide li {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #d0d0f0;
+}
+
+.controls-guide span {
+    background-color: #ff007f;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(255, 0, 127, 0.5);
+    font-size: 12px;
+}
+
+/* メニューボタン */
+.menu-btn {
+    background-color: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.menu-btn:hover {
+    background-color: #00ffff;
+    color: #050510;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+.menu-btn:active {
+    transform: scale(0.95);
+}
+
+/* ゲームオーバータイトル */
+.gameover-title {
+    font-size: 48px;
+    color: #ff0000;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    margin-bottom: 20px;
+}
+
+/* ステージクリアタイトル */
+.clear-title {
+    font-size: 48px;
+    color: #39ff14;
+    text-shadow: 0 0 15px rgba(57, 255, 20, 0.8);
+    margin-bottom: 20px;
+}
+
+/* 非表示用ユーティリティ */
+.hidden {
+    display: none !important;
+}

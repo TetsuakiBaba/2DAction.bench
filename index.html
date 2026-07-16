@@ -14,6 +14,7 @@
       <span>Action<span class="brand-dot">.</span>bench</span>
     </a>
     <nav class="header-actions" aria-label="データ操作">
+      <a class="button button-quiet" href="prompt.md" target="_blank" rel="noopener">prompt.mdを見る</a>
       <label class="button button-quiet" for="json-file">JSONを読み込む</label>
       <input id="json-file" type="file" accept="application/json,.json" hidden>
       <button class="button button-dark" id="export-button" type="button">JSONを書き出す</button>
@@ -62,7 +63,7 @@
       </div>
 
       <div class="notice" id="save-notice" role="status">
-        <span>編集内容はこのブラウザに自動保存されます。</span>
+        <span>編集内容はこのブラウザに自動保存されます。思考量の設定があるモデルは、すべて Medium に設定しています。</span>
         <button id="reset-button" type="button">ローカル編集をリセット</button>
       </div>
 
@@ -88,15 +89,24 @@
             <p class="game-title"></p>
             <h3 class="model-name"></h3>
           </div>
-          <label class="status-control">
-            <span class="sr-only">評価ステータス</span>
-            <select class="status-select" aria-label="評価ステータス">
-              <option value="untested">● 未評価</option>
-              <option value="pass">● PASS</option>
-              <option value="partial">● PARTIAL</option>
-              <option value="fail">● FAIL</option>
-            </select>
-          </label>
+          <div class="evaluation-controls">
+            <label class="score-control">
+              <span>SCORE</span>
+              <span class="score-field">
+                <input class="score-input" type="number" min="0" max="100" step="1" inputmode="numeric">
+                <span aria-hidden="true">/ 100</span>
+              </span>
+            </label>
+            <label class="status-control">
+              <span class="sr-only">評価ステータス</span>
+              <select class="status-select" aria-label="評価ステータス">
+                <option value="untested">● 未評価</option>
+                <option value="pass">● PASS</option>
+                <option value="partial">● PARTIAL</option>
+                <option value="fail">● FAIL</option>
+              </select>
+            </label>
+          </div>
         </div>
         <label class="notes-label">
           <span>TEST NOTES</span>

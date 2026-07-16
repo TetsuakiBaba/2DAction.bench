@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Quest - 冒険の冒険</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="ui-layer">
+            <div id="title-screen">
+                <h1>🌟 アドベンチャー クエスト 🌟</h1>
+                <p class="subtitle">2D Platformer Adventure</p>
+                <p class="instructions">操作説明:</p>
+                <ul>
+                    <li>← → / A / D: 移動</li>
+                    <li>Space / W / ↑: ジャンプ</li>
+                    <li>P / Escape: パウズ</li>
+                </ul>
+                <button id="start-btn">ゲーム開始</button>
+            </div>
+            
+            <div id="game-over-screen" style="display: none;">
+                <h1>🎮 ゲームオーバー 🎮</h1>
+                <p>スコア：<span id="final-score"></span></p>
+                <p>ライフ：<span id="lives-display"></span></p>
+                <button id="restart-btn">もう一度挑戦</button>
+            </div>
+            
+            <div id="victory-screen" style="display: none;">
+                <h1>🏆 ステージクリア！ 🏆</h1>
+                <p>スコア：<span id="victory-score"></span></p>
+                <p>ライフ：<span id="victory-lives"></span></p>
+                <button id="play-again-btn">もう一度プレイ</button>
+            </div>
+            
+            <div id="pause-menu" style="display: none;">
+                <h2>⏸️ パウズメニュー ⏸️</h2>
+                <p>スコア：<span id="pause-score"></span></p>
+                <p>ライフ：<span id="pause-lives"></span></p>
+                <button id="resume-btn">再開</button>
+            </div>
+        </div>
+        
+        <div id="controls-display">
+            <div class="control-group">
+                <strong>移動:</strong> ← → / A / D
+            </div>
+            <div class="control-group">
+                <strong>ジャンプ:</strong> Space / W / ↑
+            </div>
+            <div class="control-group">
+                <strong>パウズ:</strong> P / Escape
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyline Sprout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <div class="game-wrap">
+      <canvas id="game" width="960" height="540" aria-label="Skyline Sprout game canvas"></canvas>
+      <div id="overlay" class="overlay">
+        <h1>Skyline Sprout</h1>
+        <p id="overlayText">Leap across the wind gardens, gather glow seeds, and reach the beacon.</p>
+        <button id="primaryButton" type="button">Start</button>
+      </div>
+    </div>
+    <section class="hud" aria-label="Game controls and status">
+      <div><strong>Move</strong> Arrow Keys / A D</div>
+      <div><strong>Jump</strong> Space / W / Up</div>
+      <div><strong>Pause</strong> P / Escape</div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

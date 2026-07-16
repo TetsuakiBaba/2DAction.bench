@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Jump: Neon Run</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- ゲーム描画用キャンバス -->
+        <canvas id="gameCanvas" width="800" height="450"></canvas>
+
+        <!-- HUD (ゲーム内ステータス表示) -->
+        <div id="hud" class="hidden">
+            <div class="hud-item">SCORE: <span id="score-val">0</span></div>
+            <div class="hud-item">HP: <span id="hp-val">3</span> / 3</div>
+            <div class="hud-item">STAGE: <span id="stage-val">1</span></div>
+        </div>
+
+        <!-- タイトル画面 -->
+        <div id="title-screen" class="overlay">
+            <div class="overlay-content">
+                <h1 class="game-title">CYBER JUMP<br><span class="subtitle">NEON RUN</span></h1>
+                <p class="description">ネオン輝くサイバーワールドを駆け抜ける、2D横スクロールアクション！</p>
+                <div class="controls-guide">
+                    <h3>【操作方法】</h3>
+                    <ul>
+                        <li>移動: <span>A</span> / <span>D</span> or <span>←</span> / <span>→</span></li>
+                        <li>ジャンプ: <span>Space</span> / <span>W</span> or <span>↑</span></li>
+                        <li>一時停止: <span>P</span> or <span>Esc</span></li>
+                    </ul>
+                </div>
+                <button id="start-btn" class="menu-btn">START GAME</button>
+            </div>
+        </div>
+
+        <!-- 一時停止画面 -->
+        <div id="pause-screen" class="overlay hidden">
+            <div class="overlay-content">
+                <h2>PAUSED</h2>
+                <p>ゲーム一時停止中</p>
+                <button id="resume-btn" class="menu-btn">RESUME</button>
+            </div>
+        </div>
+
+        <!-- ゲームオーバー画面 -->
+        <div id="gameover-screen" class="overlay hidden">
+            <div class="overlay-content">
+                <h2 class="gameover-title">GAME OVER</h2>
+                <p>スコア: <span id="gameover-score">0</span></p>
+                <button id="restart-btn" class="menu-btn">RETRY</button>
+            </div>
+        </div>
+
+        <!-- ステージクリア画面 -->
+        <div id="clear-screen" class="overlay hidden">
+            <div class="overlay-content">
+                <h2 class="clear-title">STAGE CLEAR!</h2>
+                <p>おめでとうございます！ステージをクリアしました！</p>
+                <p>最終スコア: <span id="clear-score">0</span></p>
+                <button id="next-btn" class="menu-btn">REPLAY</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

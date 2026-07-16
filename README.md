@@ -24,3 +24,7 @@ python3 sync_benchmarks.py
 スクリプトがモデル用ディレクトリを自動検出し、HTMLのタイトル、ゲームへのリンク、不足しているスクリーンショットを追加して `benchmarks.json` と `benchmarks-data.js` を更新します。既存モデルの評価ステータスとメモは保持されます。
 
 全スクリーンショットを撮り直す場合は `python3 sync_benchmarks.py --refresh-screenshots`、メタデータだけを更新する場合は `python3 sync_benchmarks.py --no-screenshots` を使います。スクリーンショットの自動生成はmacOSの `qlmanage` を利用します。
+
+## 備考
+
+- モデルに思考量の設定がある場合は、全てミディアムで実行しています。
