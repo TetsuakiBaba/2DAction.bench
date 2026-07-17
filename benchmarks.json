@@ -1,7 +1,7 @@
 {
   "benchmark": "2DAction.bench",
   "prompt": "prompt.md",
-  "updatedAt": "2026-07-16",
+  "updatedAt": "2026-07-17",
   "results": [
     {
       "id": "claude-sonnet-4-6",
@@ -28,7 +28,7 @@
       "model": "Gemini 3.1 Pro (preview)",
       "gameTitle": "Neon Jumper",
       "status": "pass",
-      "score": 80,
+      "score": 79,
       "notes": "クリアができて完結してるが、見た目しょぼい。",
       "screenshot": "Gemini 3.1 Pro (preview)/screenshot.png",
       "gameUrl": "Gemini 3.1 Pro (preview)/index.html"
@@ -42,6 +42,16 @@
       "notes": "gemini3.5flashはサイバーな感じが好きみたい。一通り遊べて問題なし。ビジュアルが特長的",
       "screenshot": "Gemini 3.5 Flash/screenshot.png",
       "gameUrl": "Gemini 3.5 Flash/index.html"
+    },
+    {
+      "id": "gemma-4-26b-a4b-qat",
+      "model": "Gemma 4 26b-a4b-qat",
+      "gameTitle": "Neon Runner - 2D Platformer",
+      "status": "fail",
+      "score": 10,
+      "notes": "タイトル画面はあるが、ゲームはできない。",
+      "screenshot": "Gemma 4 26b-a4b-qat/screenshot.png",
+      "gameUrl": "Gemma 4 26b-a4b-qat/index.html"
     },
     {
       "id": "gemma4-31b",
@@ -58,7 +68,7 @@
       "model": "GPT5.4-mini",
       "gameTitle": "Aether Circuit",
       "status": "partial",
-      "score": 80,
+      "score": 75,
       "notes": "一応遊べるが、クリアができない。下に落ちない。",
       "screenshot": "GPT5.4-mini/screenshot.png",
       "gameUrl": "GPT5.4-mini/index.html"
@@ -122,6 +132,16 @@
       "notes": "タイトル画面からスタートはできるがゲームは全くできない",
       "screenshot": "qwen3.5-4b-mlx/screenshot.png",
       "gameUrl": "qwen3.5-4b-mlx/index.html"
+    },
+    {
+      "id": "qwen3-6-27b",
+      "model": "Qwen3.6-27b",
+      "gameTitle": "Crystal Caverns",
+      "status": "pass",
+      "score": 80,
+      "notes": "敵は一回踏んでも死なないが、ゲームとしては遊べる。コインは一個しか取れない。",
+      "screenshot": "Qwen3.6-27b/screenshot.png",
+      "gameUrl": "Qwen3.6-27b/index.html"
     },
     {
       "id": "raptor-mini",

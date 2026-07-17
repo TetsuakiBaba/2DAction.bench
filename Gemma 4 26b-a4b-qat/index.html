@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Runner - 2D Platformer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <div id="ui-layer">
+            <div id="score-board">Score: <span id="score">0</span></div>
+            <div id="lives-board">Lives: <span id="lives">3</span></div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="overlay">
+            <div id="menu-content">
+                <h1 id="title">NEON RUNNER</h1>
+                <p id="instructions">
+                    Use [A][D] or [Left][Right] to Move<br>
+                    Use [W], [Space] or [Up] to Jump<br>
+                    Use [P] or [Esc] to Pause
+                </p>
+                <button id="start-button">START GAME</button>
+            </div>
+            <div id="game-over-content" class="hidden">
+                <h1 id="status-title">GAME OVER</h1>
+                <p id="final-score">Final Score: 0</p>
+                <button id="restart-button">RETRY</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>

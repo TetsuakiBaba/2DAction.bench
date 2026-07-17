@@ -2,7 +2,7 @@
 window.BENCHMARK_DATA = {
   "benchmark": "2DAction.bench",
   "prompt": "prompt.md",
-  "updatedAt": "2026-07-16",
+  "updatedAt": "2026-07-17",
   "results": [
     {
       "id": "claude-sonnet-4-6",
@@ -38,11 +38,21 @@ window.BENCHMARK_DATA = {
       "id": "gemini-3-5-flash",
       "model": "Gemini 3.5 Flash",
       "gameTitle": "Cyber Jump: Neon Run",
+      "status": "pass",
+      "score": 95,
+      "notes": "gemini3.5flashはサイバーな感じが好きみたい。一通り遊べて問題なし。ビジュアルが特長的",
+      "screenshot": "Gemini 3.5 Flash/screenshot.png",
+      "gameUrl": "Gemini 3.5 Flash/index.html"
+    },
+    {
+      "id": "gemma-4-26b-a4b-qat",
+      "model": "Gemma 4 26b-a4b-qat",
+      "gameTitle": "Neon Runner - 2D Platformer",
       "status": "untested",
       "score": null,
       "notes": "",
-      "screenshot": "Gemini 3.5 Flash/screenshot.png",
-      "gameUrl": "Gemini 3.5 Flash/index.html"
+      "screenshot": "Gemma 4 26b-a4b-qat/screenshot.png",
+      "gameUrl": "Gemma 4 26b-a4b-qat/index.html"
     },
     {
       "id": "gemma4-31b",
@@ -123,6 +133,16 @@ window.BENCHMARK_DATA = {
       "notes": "タイトル画面からスタートはできるがゲームは全くできない",
       "screenshot": "qwen3.5-4b-mlx/screenshot.png",
       "gameUrl": "qwen3.5-4b-mlx/index.html"
+    },
+    {
+      "id": "qwen3-6-27b",
+      "model": "Qwen3.6-27b",
+      "gameTitle": "Crystal Caverns",
+      "status": "untested",
+      "score": null,
+      "notes": "",
+      "screenshot": "Qwen3.6-27b/screenshot.png",
+      "gameUrl": "Qwen3.6-27b/index.html"
     },
     {
       "id": "raptor-mini",
